@@ -1,0 +1,14 @@
+/*
+Static file for Theme changes
+Theme name: My SPA Theme
+Version: 1.0
+Template: Howdy
+*/
+
+.ordershipping .address-type-shipping {
+    display: none;
+}
+
+.orderbilling .address-type-billing {
+    display: none;
+}

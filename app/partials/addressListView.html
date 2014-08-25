@@ -1,0 +1,71 @@
+<section class="address-list-view">
+    <loadingindicator ng-show="displayLoadingIndicator" />
+    <div class="panel panel-default" ng-if="(addresses | filter:{IsCustEditable:true}).length == 0">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'Addresses' | r}}</h3>
+        </div>
+        <div class="panel-body">
+            <p class="alert alert-warning">You have no {{'addresses' | rc}} yet!</p>
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-primary" ng-click="newAddress($event)">Add an {{'address' | rc}} now</button>
+        </div>
+    </div>
+    <div class="panel panel-default"  ng-if="(addresses | filter:{IsCustEditable:true}).length > 0">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'Addresses' | r}}</h3>
+        </div>
+        <div class="panel-table">
+            <div class="row text-info" ng-show="(addresses | filter:{IsCustEditable:true}).length > 0">
+                <div class="col-sm-2">
+                    <label class="visible-xs">{{'Select all' | r}}</label>
+                    <input type='checkbox' ng-click="checkAll($event)" />
+                </div>
+                <div class="col-sm-2 hidden-xs">{{'Name' | r}}</div>
+                <div class="col-sm-2 hidden-xs">{{'City' | r}}</div>
+                <div class="col-sm-2 hidden-xs">{{'State' | r}}</div>
+                <div class="col-sm-2 hidden-xs">{{'Shipping' | r}}</div>
+                <div class="col-sm-2 hidden-xs">{{'Billing' | r}}</div>
+            </div>
+            <div class="row"  ng-repeat="address in addresses | filter:{IsCustEditable:true} | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize">
+                <loadingindicator ng-show="pagedIndicator" />
+                <div class="col-sm-2">
+                    <input type='checkbox' ng-model="address.Selected" />
+                </div>
+                <div class="col-sm-2">
+                    <span class="visible-xs heading-xs text-info">Name</span>
+                    <a ng-href="address/{{address.ID}}">{{address.AddressName}}</a>
+                </div>
+                <div class="col-sm-2">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{'City' | r}}</span>
+                    {{address.City}}</a>
+                </div>
+                <div class="col-sm-2">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{'State' | r}}</span>
+                    {{address.State}}
+                </div>
+                <div class="col-sm-2">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{'Shipping' | r}}</span>
+                    <i ng-class="{'fa fa-check': address.IsShipping }"></i>
+                </div>
+                <div class="col-sm-2">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{'Billing' | r}}</span>
+                    <i ng-class="{'fa fa-check': address.IsBilling }"></i>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div ng-show="settings.listCount > settings.pageSize">
+                <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount"
+                            items-per-page="settings.pageSize" direction-links="true"></pagination>
+            </div>
+            <button type="button" class="btn btn-danger" ng-click="deleteSelected($event)" ng-disbaled="(addresses | filter:{Selected:true}).length == 0">{{'Delete' | r}} {{'Selected' | r}}</button>
+            <button ng-if="user.Permissions.contains('CreateShipToAddress') || user.Permissions.contains('CreateBillToAddress')" type="button" class="btn btn-primary pull-right" ng-click="newAddress($event)">{{'New' | r}} {{'Address' | r}}</button>
+        </div>
+
+        <div class="navbar-fixed-bottom">
+            <loadingindicator ng-show="displayLoadingIndicator" />
+            <div class="view-action-message alert-success" ng-show="actionMessage">{{actionMessage | r}}</div>
+        </div>
+    </div>
+</section>

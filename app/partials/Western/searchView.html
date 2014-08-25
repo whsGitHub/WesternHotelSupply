@@ -1,0 +1,60 @@
+<loadingindicator ng-show="searchLoading" title="{{'Please wait while we fetch all products' | r}}" />
+<section>
+    <div class="panel panel-search">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{'Search' | r}}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form role="search">
+                <div class="view-form-icon">
+                    <div class="input-group">
+                        <input type="text" ng-model="searchTerm"  class="form-control" placeholder="Search Products" autocomplete="off" />
+                        <i class="fa fa-search"></i>
+                        <span class="hidden-xs input-group-addon">
+                            <small>{{'Press enter to search' | r}}</small>
+                        </span>
+                        <span class="input-group-addon">
+                            <button type="button" class="btn" redirect="catalog"><i class="fa fa-times-circle"></i></button>
+                        </span>
+                    </div>
+                    <button type="submit" ng-click="search()" class="btn btn-default">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div ng-show="products == 0" class="panel-product-list">
+            <p class="alert alert-info">
+                {{'Your search resulted in no records. Please refine your search.' | r}}
+            </p>
+        </div>
+        <div ng-show="products" class="panel-product-list">
+            <div class="row" ng-show="fullProducts.length > 1">
+                <div style="padding-top:15px;padding-bottom:15px;">
+                    <p class="text-info"><small>Filter by:</small></p>
+                    <div class="col-sm-2">
+                        <select class="form-control" ng-model="selectedPrice" ng-change="filterByPrice(selectedPrice)" ng-options="price as (price | currency) for price in fullProducts.Prices">
+                            <option class="view-select-placeholder ng-hide" value="" selected="selected">Price</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control" ng-model="selectedSize" ng-change="filterBySize(selectedSize)" ng-options="size as size for size in fullProducts.Sizes">
+                            <option class="view-select-placeholder ng-hide" value="" selected="selected">Size</option>
+                        </select>
+                    </div>
+                    <div class="btn btn-default" ng-click="selectedPrice='';selectedSize=''">Clear Filters</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <div class="alert alert-danger" ng-show="fullProducts.length > 0 && filteredProducts.length == 0">
+                    No products match your filtered options. Please remove filters to see more results.
+                </div>
+                <ul>
+                    <li class="well" ng-repeat="product in filteredProducts = (fullProducts | filter:{'Price':selectedPrice} | filter:{'Sizes':selectedSize})">
+                        <shortproductview p="product" />
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

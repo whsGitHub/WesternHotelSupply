@@ -1,0 +1,11 @@
+<section style="margin-top:10px;">
+    <div class="col-lg-3 col-md-4 hidden-xs hidden-sm" ng-repeat="site in siteList">
+        <div class="whs-site-list-item">
+            <img ng-src="{{'css/images/hotels/' + site.Image}}" />
+            <div>
+                <p>{{site.Name}}</p>
+                <a class="btn btn-success" href="{{site.URL}}" target="_blank">{{'Visit Store' | r}} <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
