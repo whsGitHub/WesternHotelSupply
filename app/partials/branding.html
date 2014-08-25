@@ -1,24 +1,25 @@
 <section class="jumbotron active" ng-show="user.Company.LogoUrl">
     <div class="container">
+        <div class="whs-home-message text-muted">
+            <h3>Call us Toll Free: <b>800-645-3836</b></h3>
+            <h4><a href="mailto:customerservice@westernhotelsupply.com" target="_top">customerservice@westernhotelsupply.com</a></h4>
+            <a href="hotels" class="btn btn-warning btn-lg btn-variant btn-block hidden-xs hidden-sm" ng-show="!isActive('hotels')">
+                <b>FIND AN E-STORE <i class="fa fa-chevron-right"></i></b>
+            </a>
+            <a href back-step class="btn btn-warning btn-lg btn-variant btn-block hidden-xs hidden-sm" ng-show="isActive('hotels')">
+                <b><i class="fa fa-chevron-left"></i> GO BACK</b>
+            </a>
+        </div>
+        <div class="whs-home-message whs-message" ng-if="isActive('hotels')">
+            <h3>Welcome to <b>Western’s Hotel Supply E-Stores!</b></h3>
+            <p>As a leader in e-commerce solutions, Western provides an internet store for your hotel, free of charge, that provides secure access to your branded materials, anytime, from anywhere. You will love the convenience of ordering printed materials, embroidered apparel, and logo items from a secure web environment.</p>
+            <p>Your company store offers thousands of exciting new logo products and apparel not featured in the printed catalog. Check out your e-store often for special promotions and fresh, new items – all ready for your company’s imprint.</p>
+        </div>
         <h2 class="thumbnail" ng-show="Four51User.isAuthenticated()">
             <a ng-click="refreshUser()" href="catalog">
                 <img class="img-responsive" ng-src="{{user.Company.LogoUrl}}" />
             </a>
-            <div class="whs-home-message text-muted">
-                <h3>Call us Toll Free: <b>800-645-3836</b></h3>
-                <h4><a href="mailto:customerservice@westernhotelsupply.com" target="_top">customerservice@westernhotelsupply.com</a></h4>
-                <a href="hotels" class="btn btn-warning btn-lg btn-variant btn-block hidden-xs hidden-sm" ng-show="!isActive('hotels')">
-                    <b>FIND AN E-STORE <i class="fa fa-chevron-right"></i></b>
-                </a>
-                <a href back-step class="btn btn-warning btn-lg btn-variant btn-block hidden-xs hidden-sm" ng-show="isActive('hotels')">
-                    <b><i class="fa fa-chevron-left"></i> GO BACK</b>
-                </a>
-            </div>
-            <div class="whs-home-message whs-message" ng-if="isActive('hotels')">
-                <h3>Welcome to <b>Western’s Hotel Supply E-Stores!</b></h3>
-                <p>As a leader in e-commerce solutions, Western provides an internet store for your hotel, free of charge, that provides secure access to your branded materials, anytime, from anywhere. You will love the convenience of ordering printed materials, embroidered apparel, and logo items from a secure web environment.</p>
-                <p>Your company store offers thousands of exciting new logo products and apparel not featured in the printed catalog. Check out your e-store often for special promotions and fresh, new items – all ready for your company’s imprint.</p>
-            </div>
+
         </h2>
     </div>
 </section>
