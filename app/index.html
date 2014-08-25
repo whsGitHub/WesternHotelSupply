@@ -20,6 +20,12 @@ Baymont, Days Inn, Days Hotel, Days Suites, Super 8, Ramada, Travelodge, Wingate
     <link rel="stylesheet" href="css/angular-carousel.min.css" />
 </head>
 <body ng-cloak ng-class="ng-cloak">
+<p class="upgrade">
+    <!--[if lt IE 9]>
+    This browser is incompatible with the Pizza Hut Marketing E-store.  Please upgrade to the latest version of Internet Explorer or try using Chrome / FireFox. <br />
+    <![endif]-->
+</p>
+<!--[if !lt IE 9]> -->
 <section>
     <section ng-hide="Four51User.isAuthenticated() || isAnon" class="container">
         <login />
@@ -177,6 +183,6 @@ Baymont, Days Inn, Days Hotel, Days Suites, Super 8, Ramada, Travelodge, Wingate
     <script src="js/directives/printing.js" data-group="source"></script>
 	<script src="js/directives/addToOrderSpecs.js" data-group="source"></script>
 	<script src="js/directives/productsearchinput.js" data-group="source"></script>
-
+<![endif]-->
 </body>
 </html>
