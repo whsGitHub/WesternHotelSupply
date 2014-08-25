@@ -17,20 +17,20 @@ four51.app.factory('Order', ['$resource', '$rootScope', '$451', 'Security', 'Err
             item.SpecsLength = Object.keys(item.Specs).length;
         });
 
-        order.forceMultipleShip = function(value) {
-            _multipleShip = value;
-        }
-        order.IsMultipleShip = function() {
-            var multi = false;
-            if (_multipleShip && order.LineItems[0].ShipAddressID == null) return true;
-            angular.forEach(order.LineItems, function(li, i) {
-                if (multi) return;
-                multi = i > 0 ?
-                    (li.ShipAddressID != order.LineItems[i-1].ShipAddressID || li.ShipperID != order.LineItems[i-1].ShipperID) :
-                    false;
-            });
-            return multi;
-        }
+//        order.forceMultipleShip = function(value) {
+//            _multipleShip = value;
+//        }
+//        order.IsMultipleShip = function() {
+//            var multi = false;
+//            if (_multipleShip && order.LineItems[0].ShipAddressID == null) return true;
+//            angular.forEach(order.LineItems, function(li, i) {
+//                if (multi) return;
+//                multi = i > 0 ?
+//                    (li.ShipAddressID != order.LineItems[i-1].ShipAddressID || li.ShipperID != order.LineItems[i-1].ShipperID) :
+//                    false;
+//            });
+//            return multi;
+//        }
     }
 
     var _get = function(id, success) {
