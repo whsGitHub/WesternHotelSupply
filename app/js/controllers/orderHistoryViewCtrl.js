@@ -15,7 +15,7 @@ function ($scope, $location, $routeParams, Order, FavoriteOrder, Address, User) 
 			}
 		}
 
-		if ($scope.order.IsMultipleShip()) {
+		/*if ($scope.order.IsMultipleShip()) {
 	        angular.forEach(data.LineItems, function(item) {
 	            if (item.ShipAddressID) {
 	                Address.get(item.ShipAddressID, function(add) {
@@ -28,10 +28,13 @@ function ($scope, $location, $routeParams, Order, FavoriteOrder, Address, User) 
 			Address.get(data.ShipAddressID || data.LineItems[0].ShipAddressID, function(add) {
 				data.ShipAddress = add;
 			});
-		}
+		}*/
+        Address.get(data.ShipAddressID || data.LineItems[0].ShipAddressID, function(add) {
+            $scope.order.ShipAddress = add;
+        });
 
         Address.get(data.BillAddressID, function(add){
-            data.BillAddress = add;
+            $scope.order.BillAddress = add;
         });
 	});
 
