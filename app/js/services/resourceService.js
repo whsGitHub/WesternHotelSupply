@@ -338,9 +338,9 @@ four51.app.factory('Resources', function() {
 
     var siteList = [
         {
-            "Name":"Americas Best Value Inn and Lexington Hotel Store",
-            "URL":"http://abvistore.com",
-            "Image":"ABVI.jpg"
+            "Name":"Vantage Store",
+            "URL":"http://vantagestore.com",
+            "Image":"Vantage.jpg"
         },
         {
             "Name":"Baymont Hotel Store",
@@ -360,17 +360,22 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Clarion Hotel Store",
             "URL":"http://clarionhotelstore.com",
-            "Image":"clarion.jpg"
+            "Image":"Clarion%20(2).jpg"
+        },
+        {
+            "Name":"Cobblestone Hotels",
+            "URL":"http://cobblestonestore.com",
+            "Image":"Cobblestone.jpg"
         },
         {
             "Name":"Comfort Inn Store",
             "URL":"http://comfortinnstore.com",
-            "Image":"comfortinn.jpg"
+            "Image":"Comfort.jpg"
         },
         {
             "Name":"Comfort Suites Store",
             "URL":"http://comfortsuitesstore.com",
-            "Image":"cslogo.jpg"
+            "Image":"ComfortSuites.jpg"
         },
         {
             "Name":"Days Inn Store",
@@ -380,7 +385,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Econolodge Hotel Store",
             "URL":"http://econolodgestore.com",
-            "Image":"econo.jpg"
+            "Image":"EconoLodge.jpg"
         },
         {
             "Name":"GrandStay Hospitality Store",
@@ -410,7 +415,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Mainstay Suites Store",
             "URL":"http://mainstaystore.com",
-            "Image":"mainstay.jpg"
+            "Image":"Mainstay%20(2).jpg"
         },
         {
             "Name":"Microtel Store",
@@ -420,7 +425,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Quality Inn Store",
             "URL":"http://qualityinnstore.com",
-            "Image":"quality.jpg"
+            "Image":"Quality%20(2).jpg"
         },
         {
             "Name":"Ramada Store",
@@ -428,9 +433,14 @@ four51.app.factory('Resources', function() {
             "Image":"ramada.jpg"
         },
         {
+            "Name":"Red Roof Inns",
+            "URL":"http://redroofstore.com",
+            "Image":"RedRoof.jpg"
+        },
+        {
             "Name":"Rodeway Inn Store",
             "URL":"http://rodewaystore.com",
-            "Image":"rodeway.jpg"
+            "Image":"Rodeway%20(2).jpg"
         },
         {
             "Name":"Settle Inn Store",
@@ -440,12 +450,12 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Sleep Inn Store",
             "URL":"http://sleepinnstore.com",
-            "Image":"sleepinn.jpg"
+            "Image":"Sleep.jpg"
         },
         {
             "Name":"Suburban Hotel Store",
             "URL":"http://suburbanhotelstore.com",
-            "Image":"suburban.jpg"
+            "Image":"Suburban%20(2).jpg"
         },
         {
             "Name":"Super 8 Store",
@@ -461,6 +471,11 @@ four51.app.factory('Resources', function() {
             "Name":"Wingate Hotel Store",
             "URL":"http://wingatestore.com",
             "Image":"wingate.jpg"
+        },
+        {
+            "Name":"WoodSpring Suites",
+            "URL":"http://woodspringsuitesstore.com",
+            "Image":"WoodSpring.jpg"
         },
         {
             "Name":"Wyndham Store",
