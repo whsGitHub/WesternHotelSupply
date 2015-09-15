@@ -360,7 +360,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Clarion Hotel Store",
             "URL":"http://clarionhotelstore.com",
-            "Image":"Clarion%20(2).jpg"
+            "Image":"Clarion (2).jpg"
         },
         {
             "Name":"Cobblestone Hotels",
@@ -415,7 +415,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Mainstay Suites Store",
             "URL":"http://mainstaystore.com",
-            "Image":"Mainstay%20(2).jpg"
+            "Image":"Mainstay (2).jpg"
         },
         {
             "Name":"Microtel Store",
@@ -425,7 +425,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Quality Inn Store",
             "URL":"http://qualityinnstore.com",
-            "Image":"Quality%20(2).jpg"
+            "Image":"Quality (2).jpg"
         },
         {
             "Name":"Ramada Store",
@@ -440,7 +440,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Rodeway Inn Store",
             "URL":"http://rodewaystore.com",
-            "Image":"Rodeway%20(2).jpg"
+            "Image":"Rodeway (2).jpg"
         },
         {
             "Name":"Settle Inn Store",
@@ -455,7 +455,7 @@ four51.app.factory('Resources', function() {
         {
             "Name":"Suburban Hotel Store",
             "URL":"http://suburbanhotelstore.com",
-            "Image":"Suburban%20(2).jpg"
+            "Image":"Suburban (2).jpg"
         },
         {
             "Name":"Super 8 Store",
