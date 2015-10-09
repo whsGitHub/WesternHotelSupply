@@ -339,7 +339,7 @@ four51.app.factory('Resources', function() {
     var siteList = [
         {
             "Name":"Vantage Store",
-            "URL":"http://vantagestore.com",
+            "URL":"http://vantagestore.net",
             "Image":"Vantage.jpg"
         },
         {
