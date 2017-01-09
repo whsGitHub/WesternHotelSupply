@@ -13,6 +13,7 @@
         <div ng-show="!addressform">
             <form name="cart_shipping" novalidate="">
                 <div>
+                    <div><img src="https://www.four51.com/Themes/Custom/b3aa6936-8033-492a-9d6d-8a37e2e2cef5/westernhotelsupply/images/whs_shipping.jpg" style="padding-bottom: 10px;"></div>
                     <div>
                         <span class="btn-group">
                             <button ng-show="user.Permissions.contains('ShipToMultipleAddresses') && currentOrder.LineItems.length > 1" class="btn btn-default" ng-click="setSingleShipAddress()">
@@ -49,17 +50,16 @@
                                     <select class="form-control" ng-change="updateShipper()" name="shipMethod"
                                             ng-model="currentOrder.LineItems[0].ShipperName"
                                             ng-show="user.ShipMethod.ShipperSelectionType == 'UserDropDown'"
-                                            ng-options="shipper.Name as shipper.Name for shipper in shippers | whshippers:orderShipAddress.Country | freeUPS:currentOrder"
+                                            ng-options="shipper.Name as shipper.Name for shipper in shippers | whshippers:orderShipAddress.Country | freeUPS:currentOrder:orderShipAddress"
                                             ng-required="user.ShipMethod != null" >
                                     </select>
                                     <i class="fa fa-truck"></i>
                                 </div>
                             </div>
                             <div class="alert alert-warning" style="margin-top:15px;" ng-show="orderShipAddress.Country != 'US' && orderShipAddress.Country != ''">
-                                If "Alternate Shipper" is the only Shipping Method listed, rest assured that we will find the best courier service available to you.
+                                International orders must be pre-paid and will be charged actual rates.
 
-                                We cannot offer free shipping to locations outside of the continental 48 United States.
-                                All foreign customers are responsible for all duties, taxes, customs and any other fees related to your order.
+                                Taxes and duties are charged by the shipper and are due at the time of delivery.
 
                                 We reserve the right to refuse transactions in violation of current Free Trade Agreements.
                             </div>
