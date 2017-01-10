@@ -80,4 +80,19 @@ four51.app.controller('UserEditCtrl', ['$scope', '$location', '$sce', 'User',
                 }
             );
         };
+
+        $scope.loginGuest = function(){
+            $scope.user.Email = $scope.loginGuest.Email;
+            $scope.user.FirstName = '2.0 Guest';
+            $scope.user.LastName = 'User';
+            var randomGUID = Math.floor((1 + Math.random()) * 0x10000);
+            $scope.user.Username = $scope.user.FirstName + $scope.user.LastName + randomGUID;
+            $scope.user.Password = $scope.user.FirstName + $scope.user.LastName + randomGUID;
+            $scope.user.ConfirmPassword = $scope.user.FirstName + $scope.user.LastName + randomGUID;
+            $scope.user.ConvertFromTempUser = true;
+            User.save($scope.user, function(u) {
+                $scope.user = u;
+                $location.path('checkout');
+            });
+        };
     }]);

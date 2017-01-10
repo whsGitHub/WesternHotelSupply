@@ -95,6 +95,23 @@ function ($scope, $location, $451, Order, OrderConfig, User) {
         );
     };
 
+	$scope.checkOutGuest = function() {
+		$scope.displayLoadingIndicator = true;
+		if (!$scope.isEditforApproval)
+			OrderConfig.address($scope.currentOrder, $scope.user);
+		Order.save($scope.currentOrder,
+			function(data) {
+				$scope.currentOrder = data;
+				$location.path('guest');
+				$scope.displayLoadingIndicator = false;
+			},
+			function(ex) {
+				$scope.errorMessage = ex.Message;
+				$scope.displayLoadingIndicator = false;
+			}
+		);
+	};
+
 	$scope.$watch('currentOrder.LineItems', function(newval) {
 		var newTotal = 0;
         if (!$scope.currentOrder) return newTotal;

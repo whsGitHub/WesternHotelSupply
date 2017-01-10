@@ -1,0 +1,22 @@
+<section class="user-view">
+    <loadingindicator title="{{'Please wait while we save your changes' | r | xlat}}" ng-show="displayLoadingIndicator"/>
+    <identifyusermessage ng-show="user.Type == 'TempCustomer'" />
+    <form name="login_guest" ng-submit="loginGuest()">
+        <div class="panel panel-default" id="user_form">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{('Checkout' | r) + ' ' + ('as guest user' | r) | xlat}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6 col-md-offset-3">
+                    <label class="required">{{'Email' | r | xlat}}</label>
+                    <input name="email" class="form-control" type="email" ng-model="loginGuest.Email" required placeholder="{{'Email' | r | xlat}}" autocomplete="off" />
+                    <inlineerror ng-show="login_guest.email.$invalid" title="{{'Please enter a valid' + ' ' +  ('Email' | rl) + ' ' + ('Address' | rl) | xlat}}" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_guest.$invalid" id="451_btn_login_existing" value="{{'Checkout' | r | xlat}}" />
+                <inlineerror ng-show="loginAsGuestError" title="{{loginAsGuestError}}" />
+            </div>
+        </div>
+    </form>
+</section>

@@ -157,10 +157,13 @@
                             <p ng-show="TaxMethod" ng-if="user.Company.TaxMethod != 'NoTax'">
                                 <span class="text-info">{{'Shipping, handling and tax may be added to this subtotal.' | r}}</span>
                             </p>
-                            <button class="btn" ng-class="{'btn-warning': cart.$invalid, 'btn-success': !cart.$invalid }" ng-click="checkOut()" ng-disabled="cart.$invalid">
-                                <i ng-show="cart.$invalid" class="fa fa-warning"></i>
-                                <span>{{'Check Out' | r}} {{window.outerWidth}}</span>
-                            </button>
+                            <div class="btn-group checkout-btn-group">
+                                <button class="btn" ng-class="{'btn-warning': cart.$invalid, 'btn-success': !cart.$invalid }" ng-click="checkOut()" ng-disabled="cart.$invalid">
+                                    <i ng-show="cart.$invalid" class="fa fa-warning"></i>
+                                    <span>{{'Check Out' | r}} {{window.outerWidth}}</span>
+                                </button>
+                                <button class="btn btn-info" ng-if="user.Type == 'TempCustomer'" ng-click="checkOutGuest()" href="catalog">Checkout As Guest</button>
+                            </div>
                         </div>
                     </div>
                 </div>

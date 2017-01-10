@@ -12,3 +12,7 @@ Template: Howdy
 .orderbilling .address-type-billing {
     display: none;
 }
+
+.btn-group.checkout-btn-group {
+    width: initial;
+}

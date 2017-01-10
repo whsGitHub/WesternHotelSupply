@@ -24,6 +24,7 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
 		when('/message', { templateUrl: 'partials/messageListView.html', controller: 'MessageListCtrl' }).
 		when('/message/:id', { templateUrl: 'partials/messageView.html', controller: 'MessageViewCtrl' }).
         when('/admin', { templateUrl: 'partials/Western/userView.html', controller: 'UserEditCtrl' }).
+		when('/guest', { templateUrl: 'partials/guestUserView.html', controller: 'UserEditCtrl' }).
         when('/addresses', { templateUrl: 'partials/addressListView.html', controller: 'AddressListCtrl' }).
         when('/address', { templateUrl: 'partials/addressView.html', controller: 'AddressViewCtrl' }).
         when('/address/:id', { templateUrl: 'partials/addressView.html', controller: 'AddressViewCtrl' }).
