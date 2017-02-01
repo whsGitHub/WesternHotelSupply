@@ -6,24 +6,26 @@
             <i class="pull-right" ng-class="{'fa fa-caret-up': checkOutSection == 'shipping', 'fa fa-caret-down': checkOutSection == 'order' || checkOutSection == 'billing' }"></i>
         </h3>
     </div>
-    <div class="panel-body" collapse="checkOutSection != 'shipping'" class="panel-body ">
+    <div class="panel-body" collapse="checkOutSection != 'shipping'" class="panel-body">
+        <div>
+            <shippingmessage />
+        </div>
         <div ng-show="addressform || (addresses | filter:{IsShipping:true}).length == 0 && user.Permissions.contains('CreateShipToAddress')" class="ordershipping">
             <addressinput address='shipaddress' user='user'></addressinput>
         </div>
         <div ng-show="!addressform">
             <form name="cart_shipping" novalidate="">
                 <div>
-                    <div><img src="https://www.four51.com/Themes/Custom/b3aa6936-8033-492a-9d6d-8a37e2e2cef5/westernhotelsupply/images/whs_shipping.jpg" style="padding-bottom: 10px;"></div>
                     <div>
                         <span class="btn-group">
                             <button ng-show="user.Permissions.contains('ShipToMultipleAddresses') && currentOrder.LineItems.length > 1" class="btn btn-default" ng-click="setSingleShipAddress()">
                                 <i ng-class="{'fa fa-check': true}"></i>
                                 Single {{'Address' | r}}
                             </button>
-                            <!--<button ng-show="user.Permissions.contains('ShipToMultipleAddresses') && currentOrder.LineItems.length > 1" class="btn btn-default" type="button" ng-click="setMultipleShipAddress()">-->
-                                <!--<i ng-class="{'fa fa-check': currentOrder.IsMultipleShip() }"></i>-->
-                                <!--Multiple {{'Addresses' | r}}-->
-                            <!--</button>-->
+                            <!--<button ng-show="user.Permissions.contains('ShipToMultipleAddresses') && currentOrder.LineItems.length > 1" class="btn btn-default" type="button" ng-click="setMultipleShipAddress()">
+                                <i ng-class="{'fa fa-check': currentOrder.IsMultipleShip() }"></i>
+                                Multiple {{'Addresses' | r}}
+                            </button>-->
                              <button class="btn btn-info pull-right" type="button"
                                      ng-hide="(addressform || (!addressform && (addresses | filter:{IsShipping:true}).length == 0) || !user.Permissions.contains('CreateShipToAddress'))" ng-click="addressform = true" tabindex="-1">
                                  New {{'Address' | r}}
@@ -50,18 +52,11 @@
                                     <select class="form-control" ng-change="updateShipper()" name="shipMethod"
                                             ng-model="currentOrder.LineItems[0].ShipperName"
                                             ng-show="user.ShipMethod.ShipperSelectionType == 'UserDropDown'"
-                                            ng-options="shipper.Name as shipper.Name for shipper in shippers | whshippers:orderShipAddress.Country | freeUPS:currentOrder:orderShipAddress"
+                                            ng-options="shipper.Name as shipper.Name for shipper in shippers | wpShippers:orderShipAddress.Country:orderShipAddress.State | freeUPS:currentOrder"
                                             ng-required="user.ShipMethod != null" >
                                     </select>
                                     <i class="fa fa-truck"></i>
                                 </div>
-                            </div>
-                            <div class="alert alert-warning" style="margin-top:15px;" ng-show="orderShipAddress.Country != 'US' && orderShipAddress.Country != ''">
-                                International orders must be pre-paid and will be charged actual rates.
-
-                                Taxes and duties are charged by the shipper and are due at the time of delivery.
-
-                                We reserve the right to refuse transactions in violation of current Free Trade Agreements.
                             </div>
                             <div class="order-location" ng-show="orderShipAddress.ID">
                                 <p><strong><small>{{'Shipping' | r}} {{'Location' | r}}</small></strong></p>

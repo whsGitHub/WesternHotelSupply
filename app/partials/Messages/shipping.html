@@ -1,1 +1,77 @@
-<div class="panel-body"></div>
+<div class="shipping-message table-responsive">
+    <table class="table">
+        <tbody>
+        <tr>
+            <th colspan="2" class="text-center">
+                <h5 class="text-info">Ground Service - Continental USA*</h5>
+            </th>
+        </tr>
+        <tr>
+            <th>Value of Order</th>
+            <th>Charges</th>
+        </tr>
+        <tr>
+            <td>$0 - $50.99</td>
+            <td>$6.95</td>
+        </tr>
+        <tr>
+            <td>$51.00 - $150.99</td>
+            <td>$9.95</td>
+        </tr>
+        <tr>
+            <td>$151.00 - $249.99</td>
+            <td>$15.95</td>
+        </tr>
+        <tr>
+            <td>$250+</td>
+            <td>FREE</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr><td><small>*Excludes flag poles</small></td></tr>
+        </tfoot>
+    </table>
+</div>
+<div class="shipping-message table-responsive">
+    <table class="table">
+        <tbody>
+        <tr>
+            <th colspan="2" class="text-center">
+                <h5 class="text-info">Standard Service - Hawaii &amp; Alaska*</h5>
+            </th>
+        </tr>
+        <tr>
+            <th>Value of Order</th>
+            <th>Charges</th>
+        </tr>
+        <tr>
+            <td>$0 - $200.99</td>
+            <td>$34.95</td>
+        </tr>
+        <tr>
+            <td>$201.00 - $400.99</td>
+            <td>$40.95</td>
+        </tr>
+        <tr>
+            <td>$401.00 - $600.99</td>
+            <td>$45.95</td>
+        </tr>
+        <tr>
+            <td>$601 - $1,000.99</td>
+            <td>$55.95</td>
+        </tr>
+        <tr>
+            <td>$1000.00+</td>
+            <td>$65.95</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+<div style="clear:both"></div>
+<div class="alert alert-warning" style="margin-top:15px;" ng-show="orderShipAddress.Country != 'US' &amp;&amp; orderShipAddress.Country != ''">
+    International orders must be pre-paid and will be charged actual rates.
+    Taxes and duties are charged by the shipper and are due at the time of delivery.
+    We reserve the right to refuse transactions in violation of current Free Trade Agreements.
+</div>

@@ -1,8 +1,15 @@
 /*
 Static file for Theme changes
-Theme name: My SPA Theme
+Theme name: Western Hotel Supply
 Version: 1.0
-Template: Howdy
+Last Updated: 2/1/17
+
+Developers:
+Four51 Partner, Coverdale
+Four51 Partner, Jen Rasmussen
+*/
+
+/*Colors
 */
 
 .ordershipping .address-type-shipping {
@@ -16,3 +23,25 @@ Template: Howdy
 .btn-group.checkout-btn-group {
     width: initial;
 }
+
+/*shipping message*/
+.shipping-message .table{
+    width:48%;
+    float:left;
+}
+
+.shipping-message .table:nth-child(1){
+    margin-right:10px
+}
+
+.shipping-message h5{
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+@media(max-width:767px){
+    .shipping-message .table{
+        width:100%;
+    }
+}
+/*shipping message*/

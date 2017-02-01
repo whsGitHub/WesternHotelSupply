@@ -80,29 +80,64 @@ four51.app.filter('paginate', function() {
 });
 
 //WHS Filters -------------------
-four51.app.filter('whshippers', function() {
-    return function(shippers, country) {
-        if (shippers && country) {
-            var results = [];
-            if (country == "US") {
-                angular.forEach(shippers, function(shipper){
-                    if (shipper.Name.indexOf('International') == -1) {
-                        results.push(shipper);
-                    }
-                });
-            }
-            else {
-                angular.forEach(shippers, function(shipper){
-                    if (shipper.Name.indexOf('International') > -1 || shipper.Name.indexOf('Alternate Shipper') > -1) {
-                        results.push(shipper);
-                    }
-                });
-            }
+four51.app.filter('wpShippers', function() {
+	return function(shippers, country, state) {
+		if (shippers && country && state) {
+			var results = [];
 
-            return results;
-        }
-    }
+			if (country == "US") {
+				if(state != "AK" && state !="HI") {
+					angular.forEach(shippers, function(shipper){
+						if (shipper.Name.indexOf('Flat Rate Service - Canada') == -1 && shipper.Name.indexOf('Flat Rate Service - AK & HI') == -1) {
+							results.push(shipper);
+						}
+					});
+				}
+				else {
+					angular.forEach(shippers, function(shipper){
+						if (shipper.Name.indexOf('Flat Rate Ground Service') == -1 && shipper.Name.indexOf('Flat Rate Service - Canada') == -1) {
+							results.push(shipper);
+						}
+					});
+				}
+			}
+			if (country == "CA") {
+				angular.forEach(shippers, function(shipper){
+					if (shipper.Name.indexOf('Flat Rate Service - Canada') > -1) {
+						results.push(shipper);
+					}
+				});
+			}
+			else {
+				angular.forEach(shippers, function(shipper){
+					if (shipper.Name.indexOf('International') > -1 || shipper.Name.indexOf('Alternate Shipper') > -1) {
+						results.push(shipper);
+					}
+				});
+			}
+
+			return results;
+		}
+	}
 });
+
+four51.app.filter('freeUPS', function() {
+	return function(value, order) {
+		var output = [];
+		angular.forEach(value, function(v) {
+			if (order.Subtotal >= 250){
+				if(v.Name != 'UPS Ground'){
+					output.push(v);
+				}
+			}
+			else {
+				output.push(v);
+			}
+		});
+		return output;
+	}
+});
+
 
 four51.app.filter('westernNames', function() {
     return function(name) {
@@ -111,19 +146,18 @@ four51.app.filter('westernNames', function() {
     }
 });
 
-four51.app.filter('freeUPS', function() {
-    return function(value, order) {
-        var output = [];
-        angular.forEach(value, function(v) {
-            if (order.Subtotal >= 250){
-                if(v.Name != 'UPS Ground'){
-                    output.push(v);
-                }
-            }
-            else if (v.Name != 'UPS Ground -Free'){
-                output.push(v)
-            }
-        });
-        return output;
-    }
+four51.app.filter('hideSpecs', function() {
+	return function(value) {
+		var output = [];
+		var filtered = [];
+		angular.forEach(value, function(v){
+			if (v.Name == 'Logo' && value.Color.Value && value.Color.Value.toUpperCase().includes('NO LOGO')){
+				filtered.push(v);
+			}
+			else {
+				output.push(v);
+			}
+		});
+		return output;
+	}
 });
