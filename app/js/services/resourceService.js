@@ -338,9 +338,9 @@ four51.app.factory('Resources', function() {
 
     var siteList = [
         {
-            "Name":"Vantage Store",
+            "Name":"Red Lion Store",
             "URL":"http://vantagestore.net",
-            "Image":"Vantage.jpg"
+            "Image":"RedLion.jpg"
         },
         {
             "Name":"Baymont Hotel Store",
@@ -461,6 +461,11 @@ four51.app.factory('Resources', function() {
             "Name":"Super 8 Store",
             "URL":"http://super8store.net",
             "Image":"super8.jpg"
+        },
+        {
+            "Name":"SureStay Store",
+            "URL":"http://surestaystore.com",
+            "Image":"SureStay.jpg"
         },
         {
             "Name":"Travelodge Store",
