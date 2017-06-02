@@ -338,11 +338,6 @@ four51.app.factory('Resources', function() {
 
     var siteList = [
         {
-            "Name":"Red Lion Store",
-            "URL":"http://vantagestore.net",
-            "Image":"RedLion.jpg"
-        },
-        {
             "Name":"Baymont Hotel Store",
             "URL":"http://www.baymontstore.com",
             "Image":"baymont.jpg"
@@ -431,6 +426,11 @@ four51.app.factory('Resources', function() {
             "Name":"Ramada Store",
             "URL":"http://ramadastore.com",
             "Image":"ramada.jpg"
+        },
+        {
+            "Name":"Red Lion Store",
+            "URL":"http://vantagestore.net",
+            "Image":"RedLion.jpg"
         },
         {
             "Name":"Red Roof Inns",
