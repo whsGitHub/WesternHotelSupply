@@ -94,7 +94,7 @@ four51.app.factory('ProductDisplayService', ['$sce', '$451', 'Variant', 'Product
 				newErrorList.push(scope.LineItem.qtyError);
 
 			if(!scope.LineItem.Variant && scope.LineItem.Product.IsVBOSS){
-				newErrorList.push("Please select an active product");
+				newErrorList.push("This item is not available; please make another selection.");
 			}
 			angular.forEach(scope.LineItem.Specs, function(s){
 				if(s.Required && !s.Value)
