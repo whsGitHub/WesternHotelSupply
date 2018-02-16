@@ -3,7 +3,7 @@ function ($routeParams, $sce, $scope, $451, Category, Product, Nav) {
 	$scope.productLoadingIndicator = true;
 	$scope.settings = {
 		currentPage: 1,
-		pageSize: 40
+		pageSize: 48
 	};
 	$scope.trusted = function(d){
 		if(d) return $sce.trustAsHtml(d);
